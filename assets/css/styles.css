@@ -1,0 +1,188 @@
+#apf-filter {
+    margin-bottom: 20px;
+}
+#apf-results {
+    margin-top: 20px;
+}
+
+/* General Styles for AJAX Product Filter Widget */
+.widget_apf_product_filter_widget {
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Filter Form */
+#apf-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#apf-filter select,
+#apf-filter button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+#apf-filter select:focus,
+#apf-filter button:focus {
+    outline: none;
+    border-color: #0073aa; /* WordPress primary blue color */
+    box-shadow: 0 0 5px rgba(0, 115, 170, 0.5);
+}
+
+/* Filter Button */
+#apf-filter button {
+    background: #0073aa;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#apf-filter button:hover {
+    background: #005b7f;
+}
+
+/* Results Section */
+#apf-results {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#apf-results p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Product Display */
+#apf-results .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#apf-results .product img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#apf-results .product .product-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#apf-results .product .price {
+    font-size: 14px;
+    color: #0073aa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #apf-filter {
+        gap: 8px;
+    }
+
+    #apf-filter select,
+    #apf-filter button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #apf-results .product .product-title {
+        font-size: 14px;
+    }
+
+    #apf-results .product .price {
+        font-size: 12px;
+    }
+}
+
+
+/* Preset Admin Page Styling */
+.wrap h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.wrap table.form-table th {
+    text-align: left;
+    padding: 10px 15px 10px 0;
+}
+
+.wrap table.form-table input,
+.wrap table.form-table select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.wrap .widefat {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.wrap .widefat th,
+.wrap .widefat td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.wrap .widefat th {
+    background: #f1f1f1;
+}
+
+.wrap .widefat tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.wrap .widefat a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.wrap .widefat a:hover {
+    text-decoration: underline;
+}
+
+/* Notification Styling */
+#apf-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+}
+
+#apf-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#apf-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
