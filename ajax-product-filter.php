@@ -73,8 +73,8 @@ add_action( 'admin_menu', 'apf_add_woocommerce_menu' );
 function apf_add_woocommerce_menu() {
     add_submenu_page(
         'woocommerce',
-        __( 'Filter Presets', 'ajax-product-filter' ),
-        __( 'Filter Presets', 'ajax-product-filter' ),
+        __( 'AJAX Filter Presets', 'ajax-product-filter' ),
+        __( 'AJAX Filter Presets', 'ajax-product-filter' ),
         'manage_woocommerce',
         'apf-filter-presets',
         'apf_filter_presets_page'
@@ -93,23 +93,29 @@ function apf_filter_presets_page() {
                     <td><input type="text" id="preset_name" name="preset_name" class="regular-text" required></td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="preset_category"><?php _e( 'Category', 'ajax-product-filter' ); ?></label></th>
+                    <th scope="row">
+                        <label for="taxonomy"><?php _e('Taxonomy', 'ajax-product-filter'); ?></label>
+                    </th>
                     <td>
-                        <select id="preset_category" name="preset_category" class="regular-text">
-                            <option value=""><?php _e( 'All Categories', 'ajax-product-filter' ); ?></option>
+                        <select id="taxonomy" name="taxonomy" required>
+                            <option value=""><?php _e('Select Taxonomy', 'ajax-product-filter'); ?></option>
+                            <option value="product_cat"><?php _e('Category', 'ajax-product-filter'); ?></option>
+                            <option value="product_tag"><?php _e('Tag', 'ajax-product-filter'); ?></option>
                             <?php
-                            $categories = get_terms( 'product_cat' );
-                            foreach ( $categories as $category ) {
-                                echo '<option value="' . esc_attr( $category->slug ) . '">' . esc_html( $category->name ) . '</option>';
+                            // Dynamically fetch product attributes
+                            $attributes = wc_get_attribute_taxonomies();
+                            foreach ($attributes as $attribute) {
+                                echo '<option value="pa_' . esc_attr($attribute->attribute_name) . '">' . esc_html($attribute->attribute_label) . '</option>';
                             }
                             ?>
                         </select>
                     </td>
                 </tr>
+
             </table>
             <?php submit_button( __( 'Save Preset', 'ajax-product-filter' ) ); ?>
         </form>
-
+        <!-- Table for the Saved Preset -->
         <h2><?php _e( 'Saved Presets', 'ajax-product-filter' ); ?></h2>
         <table class="widefat">
             <thead>
